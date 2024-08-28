@@ -42,6 +42,11 @@
             height: 90px;
             object-fit: cover;
         }
+
+        .info-content div {
+            max-width: 250px; /* Adjust this as needed */
+            flex: 1;
+        }
     </style>
 </head>
 
@@ -57,14 +62,14 @@
             const startPoint = {
                 lat: 37.403729, // Latitude for Dean Apartments
                 lng: -122.110057 // Longitude for Dean Apartments
-            }; // Dean Apartments coordinates
+            };
             const endPoint = {
                 lat: 37.40113939438798,
                 lng: -122.10880823821343
-            }; // Center of the map
+            };
 
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12,
+                zoom: 13,
                 center: startPoint,
                 mapId: '79048a3bf41fcb80', // Replace with your map ID
                 tilt: 45, // Enable 3D tilt
@@ -122,7 +127,7 @@
 
                     let step = 0;
                     const numSteps = route.length; // Number of steps based on the route length
-                    const timePerStep = 200; // Slower speed: increase time per step in milliseconds
+                    const timePerStep = 400; // Slower speed: increase time per step in milliseconds
 
                     function animateMarker() {
                         if (step < numSteps) {
@@ -170,7 +175,7 @@
                         // Build the content for the infowindow
                         let content = `
                             <div class="info-content">
-                                <img src="https://raw.githubusercontent.com/brittanyyee/descriptors/main/background.webp" alt="Image">
+                                <img src="https://raw.githubusercontent.com/brittanyyee/descriptors/main/walmart.png" alt="Image">
                                 <div>
                                     <strong>Address:</strong> ${result.formatted_address}<br>
                                     ${addressDescriptor.landmarks && addressDescriptor.landmarks.length > 0 ? 
@@ -208,3 +213,4 @@
 </body>
 
 </html>
+
